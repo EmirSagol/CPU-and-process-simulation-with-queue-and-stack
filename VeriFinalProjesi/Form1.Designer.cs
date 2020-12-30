@@ -56,9 +56,11 @@ namespace VeriFinalProjesi
             this.checkBox_p2 = new System.Windows.Forms.CheckBox();
             this.checkBox_p1 = new System.Windows.Forms.CheckBox();
             this.timer_Islemci = new System.Windows.Forms.Timer(this.components);
-            this.timer_Process1 = new System.Windows.Forms.Timer(this.components);
-            this.timer_Process2 = new System.Windows.Forms.Timer(this.components);
-            this.timer_Process3 = new System.Windows.Forms.Timer(this.components);
+            this.textBox_CpuSpeed = new System.Windows.Forms.TextBox();
+            this.textBox_P1Speed = new System.Windows.Forms.TextBox();
+            this.textBox_P2Speed = new System.Windows.Forms.TextBox();
+            this.textBox_P3Speed = new System.Windows.Forms.TextBox();
+            this.timer_FormGuncelle = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_p3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_p2)).BeginInit();
@@ -176,6 +178,10 @@ namespace VeriFinalProjesi
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.textBox_P3Speed);
+            this.groupBox1.Controls.Add(this.textBox_P2Speed);
+            this.groupBox1.Controls.Add(this.textBox_P1Speed);
+            this.groupBox1.Controls.Add(this.textBox_CpuSpeed);
             this.groupBox1.Controls.Add(this.trackBar_p3);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.trackBar_p2);
@@ -309,6 +315,48 @@ namespace VeriFinalProjesi
             this.checkBox_p1.Text = "Process 1";
             this.checkBox_p1.UseVisualStyleBackColor = true;
             // 
+            // timer_Islemci
+            // 
+            this.timer_Islemci.Interval = 1000;
+            this.timer_Islemci.Tick += new System.EventHandler(this.timer_Islemci_Tick);
+            // 
+            // textBox_CpuSpeed
+            // 
+            this.textBox_CpuSpeed.Location = new System.Drawing.Point(120, 115);
+            this.textBox_CpuSpeed.Name = "textBox_CpuSpeed";
+            this.textBox_CpuSpeed.ReadOnly = true;
+            this.textBox_CpuSpeed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_CpuSpeed.TabIndex = 15;
+            // 
+            // textBox_P1Speed
+            // 
+            this.textBox_P1Speed.Location = new System.Drawing.Point(355, 115);
+            this.textBox_P1Speed.Name = "textBox_P1Speed";
+            this.textBox_P1Speed.ReadOnly = true;
+            this.textBox_P1Speed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_P1Speed.TabIndex = 16;
+            // 
+            // textBox_P2Speed
+            // 
+            this.textBox_P2Speed.Location = new System.Drawing.Point(577, 115);
+            this.textBox_P2Speed.Name = "textBox_P2Speed";
+            this.textBox_P2Speed.ReadOnly = true;
+            this.textBox_P2Speed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_P2Speed.TabIndex = 17;
+            // 
+            // textBox_P3Speed
+            // 
+            this.textBox_P3Speed.Location = new System.Drawing.Point(824, 115);
+            this.textBox_P3Speed.Name = "textBox_P3Speed";
+            this.textBox_P3Speed.ReadOnly = true;
+            this.textBox_P3Speed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_P3Speed.TabIndex = 18;
+            // 
+            // timer_FormGuncelle
+            // 
+            this.timer_FormGuncelle.Interval = 10;
+            this.timer_FormGuncelle.Tick += new System.EventHandler(this.timer_FormGuncelle_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -372,9 +420,11 @@ namespace VeriFinalProjesi
         private System.Windows.Forms.CheckBox checkBox_p2;
         private System.Windows.Forms.CheckBox checkBox_p1;
         private System.Windows.Forms.Timer timer_Islemci;
-        private System.Windows.Forms.Timer timer_Process1;
-        private System.Windows.Forms.Timer timer_Process2;
-        private System.Windows.Forms.Timer timer_Process3;
+        private System.Windows.Forms.TextBox textBox_P3Speed;
+        private System.Windows.Forms.TextBox textBox_P2Speed;
+        private System.Windows.Forms.TextBox textBox_P1Speed;
+        private System.Windows.Forms.TextBox textBox_CpuSpeed;
+        private System.Windows.Forms.Timer timer_FormGuncelle;
     }
 }
 
