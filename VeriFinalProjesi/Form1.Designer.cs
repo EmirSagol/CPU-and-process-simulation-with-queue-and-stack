@@ -42,6 +42,10 @@ namespace VeriFinalProjesi
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_p3 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_P3Speed = new System.Windows.Forms.TextBox();
+            this.textBox_P2Speed = new System.Windows.Forms.TextBox();
+            this.textBox_P1Speed = new System.Windows.Forms.TextBox();
+            this.textBox_CpuSpeed = new System.Windows.Forms.TextBox();
             this.trackBar_p3 = new System.Windows.Forms.TrackBar();
             this.label8 = new System.Windows.Forms.Label();
             this.trackBar_p2 = new System.Windows.Forms.TrackBar();
@@ -56,11 +60,10 @@ namespace VeriFinalProjesi
             this.checkBox_p2 = new System.Windows.Forms.CheckBox();
             this.checkBox_p1 = new System.Windows.Forms.CheckBox();
             this.timer_Islemci = new System.Windows.Forms.Timer(this.components);
-            this.textBox_CpuSpeed = new System.Windows.Forms.TextBox();
-            this.textBox_P1Speed = new System.Windows.Forms.TextBox();
-            this.textBox_P2Speed = new System.Windows.Forms.TextBox();
-            this.textBox_P3Speed = new System.Windows.Forms.TextBox();
             this.timer_FormGuncelle = new System.Windows.Forms.Timer(this.components);
+            this.timer_P1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_P2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_P3 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_p3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_p2)).BeginInit();
@@ -114,13 +117,13 @@ namespace VeriFinalProjesi
             this.textBox_p1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_p1.Multiline = true;
             this.textBox_p1.Name = "textBox_p1";
-            this.textBox_p1.Size = new System.Drawing.Size(77, 240);
+            this.textBox_p1.Size = new System.Drawing.Size(60, 240);
             this.textBox_p1.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 403);
+            this.label2.Location = new System.Drawing.Point(47, 403);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 18);
@@ -140,7 +143,7 @@ namespace VeriFinalProjesi
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(158, 403);
+            this.label3.Location = new System.Drawing.Point(150, 403);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 18);
@@ -153,13 +156,13 @@ namespace VeriFinalProjesi
             this.textBox_p2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_p2.Multiline = true;
             this.textBox_p2.Name = "textBox_p2";
-            this.textBox_p2.Size = new System.Drawing.Size(77, 240);
+            this.textBox_p2.Size = new System.Drawing.Size(60, 240);
             this.textBox_p2.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(263, 403);
+            this.label4.Location = new System.Drawing.Point(258, 403);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 18);
@@ -172,7 +175,7 @@ namespace VeriFinalProjesi
             this.textBox_p3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_p3.Multiline = true;
             this.textBox_p3.Name = "textBox_p3";
-            this.textBox_p3.Size = new System.Drawing.Size(77, 240);
+            this.textBox_p3.Size = new System.Drawing.Size(60, 240);
             this.textBox_p3.TabIndex = 13;
             // 
             // groupBox1
@@ -196,6 +199,38 @@ namespace VeriFinalProjesi
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hız ayarları ( 1 saniyede yapılan işlem sayısı)";
+            // 
+            // textBox_P3Speed
+            // 
+            this.textBox_P3Speed.Location = new System.Drawing.Point(824, 115);
+            this.textBox_P3Speed.Name = "textBox_P3Speed";
+            this.textBox_P3Speed.ReadOnly = true;
+            this.textBox_P3Speed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_P3Speed.TabIndex = 18;
+            // 
+            // textBox_P2Speed
+            // 
+            this.textBox_P2Speed.Location = new System.Drawing.Point(577, 115);
+            this.textBox_P2Speed.Name = "textBox_P2Speed";
+            this.textBox_P2Speed.ReadOnly = true;
+            this.textBox_P2Speed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_P2Speed.TabIndex = 17;
+            // 
+            // textBox_P1Speed
+            // 
+            this.textBox_P1Speed.Location = new System.Drawing.Point(355, 115);
+            this.textBox_P1Speed.Name = "textBox_P1Speed";
+            this.textBox_P1Speed.ReadOnly = true;
+            this.textBox_P1Speed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_P1Speed.TabIndex = 16;
+            // 
+            // textBox_CpuSpeed
+            // 
+            this.textBox_CpuSpeed.Location = new System.Drawing.Point(120, 115);
+            this.textBox_CpuSpeed.Name = "textBox_CpuSpeed";
+            this.textBox_CpuSpeed.ReadOnly = true;
+            this.textBox_CpuSpeed.Size = new System.Drawing.Size(30, 24);
+            this.textBox_CpuSpeed.TabIndex = 15;
             // 
             // trackBar_p3
             // 
@@ -318,44 +353,23 @@ namespace VeriFinalProjesi
             // timer_Islemci
             // 
             this.timer_Islemci.Interval = 1000;
-            this.timer_Islemci.Tick += new System.EventHandler(this.timer_Islemci_Tick);
-            // 
-            // textBox_CpuSpeed
-            // 
-            this.textBox_CpuSpeed.Location = new System.Drawing.Point(120, 115);
-            this.textBox_CpuSpeed.Name = "textBox_CpuSpeed";
-            this.textBox_CpuSpeed.ReadOnly = true;
-            this.textBox_CpuSpeed.Size = new System.Drawing.Size(30, 24);
-            this.textBox_CpuSpeed.TabIndex = 15;
-            // 
-            // textBox_P1Speed
-            // 
-            this.textBox_P1Speed.Location = new System.Drawing.Point(355, 115);
-            this.textBox_P1Speed.Name = "textBox_P1Speed";
-            this.textBox_P1Speed.ReadOnly = true;
-            this.textBox_P1Speed.Size = new System.Drawing.Size(30, 24);
-            this.textBox_P1Speed.TabIndex = 16;
-            // 
-            // textBox_P2Speed
-            // 
-            this.textBox_P2Speed.Location = new System.Drawing.Point(577, 115);
-            this.textBox_P2Speed.Name = "textBox_P2Speed";
-            this.textBox_P2Speed.ReadOnly = true;
-            this.textBox_P2Speed.Size = new System.Drawing.Size(30, 24);
-            this.textBox_P2Speed.TabIndex = 17;
-            // 
-            // textBox_P3Speed
-            // 
-            this.textBox_P3Speed.Location = new System.Drawing.Point(824, 115);
-            this.textBox_P3Speed.Name = "textBox_P3Speed";
-            this.textBox_P3Speed.ReadOnly = true;
-            this.textBox_P3Speed.Size = new System.Drawing.Size(30, 24);
-            this.textBox_P3Speed.TabIndex = 18;
             // 
             // timer_FormGuncelle
             // 
             this.timer_FormGuncelle.Interval = 10;
             this.timer_FormGuncelle.Tick += new System.EventHandler(this.timer_FormGuncelle_Tick);
+            // 
+            // timer_P1
+            // 
+            this.timer_P1.Tick += new System.EventHandler(this.timer_P1_Tick);
+            // 
+            // timer_P2
+            // 
+            this.timer_P2.Tick += new System.EventHandler(this.timer_P2_Tick);
+            // 
+            // timer_P3
+            // 
+            this.timer_P3.Tick += new System.EventHandler(this.timer_P3_Tick);
             // 
             // Form1
             // 
@@ -425,6 +439,9 @@ namespace VeriFinalProjesi
         private System.Windows.Forms.TextBox textBox_P1Speed;
         private System.Windows.Forms.TextBox textBox_CpuSpeed;
         private System.Windows.Forms.Timer timer_FormGuncelle;
+        private System.Windows.Forms.Timer timer_P1;
+        private System.Windows.Forms.Timer timer_P2;
+        private System.Windows.Forms.Timer timer_P3;
     }
 }
 
