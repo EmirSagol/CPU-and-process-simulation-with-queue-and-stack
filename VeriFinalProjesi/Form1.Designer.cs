@@ -88,8 +88,10 @@ namespace VeriFinalProjesi
             this.textBox_Processkuyrugu.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Processkuyrugu.Multiline = true;
             this.textBox_Processkuyrugu.Name = "textBox_Processkuyrugu";
+            this.textBox_Processkuyrugu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBox_Processkuyrugu.Size = new System.Drawing.Size(441, 53);
             this.textBox_Processkuyrugu.TabIndex = 1;
+            this.textBox_Processkuyrugu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // bttn_islemcibaslat
             // 
@@ -100,6 +102,7 @@ namespace VeriFinalProjesi
             this.bttn_islemcibaslat.TabIndex = 2;
             this.bttn_islemcibaslat.Text = "İşlemci Başlat";
             this.bttn_islemcibaslat.UseVisualStyleBackColor = true;
+            this.bttn_islemcibaslat.Click += new System.EventHandler(this.bttn_islemcibaslat_Click);
             // 
             // bttn_islemcidurdur
             // 
@@ -110,9 +113,11 @@ namespace VeriFinalProjesi
             this.bttn_islemcidurdur.TabIndex = 3;
             this.bttn_islemcidurdur.Text = "İşlemci Durdur";
             this.bttn_islemcidurdur.UseVisualStyleBackColor = true;
+            this.bttn_islemcidurdur.Click += new System.EventHandler(this.bttn_islemcidurdur_Click);
             // 
             // textBox_p1
             // 
+            this.textBox_p1.BackColor = System.Drawing.Color.OldLace;
             this.textBox_p1.Location = new System.Drawing.Point(54, 157);
             this.textBox_p1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_p1.Multiline = true;
@@ -152,6 +157,7 @@ namespace VeriFinalProjesi
             // 
             // textBox_p2
             // 
+            this.textBox_p2.BackColor = System.Drawing.Color.DarkOrange;
             this.textBox_p2.Location = new System.Drawing.Point(158, 157);
             this.textBox_p2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_p2.Multiline = true;
@@ -171,6 +177,7 @@ namespace VeriFinalProjesi
             // 
             // textBox_p3
             // 
+            this.textBox_p3.BackColor = System.Drawing.Color.Bisque;
             this.textBox_p3.Location = new System.Drawing.Point(263, 157);
             this.textBox_p3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_p3.Multiline = true;
@@ -353,6 +360,7 @@ namespace VeriFinalProjesi
             // timer_Islemci
             // 
             this.timer_Islemci.Interval = 1000;
+            this.timer_Islemci.Tick += new System.EventHandler(this.timer_Islemci_Tick);
             // 
             // timer_FormGuncelle
             // 
