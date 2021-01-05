@@ -102,11 +102,12 @@ namespace VeriFinalProjesi
                 if (p1_On == null)
                 {
                     p1_On = p1_Arka = p1kuyruk;
-                    return;
                 }
-
-                p1_Arka.sonraki = p1kuyruk;
-                p1_Arka = p1kuyruk;
+                else if (p1_On != null)
+                {
+                    p1_Arka.sonraki = p1kuyruk;
+                    p1_Arka = p1kuyruk;
+                }
             }
         }
 
@@ -147,11 +148,12 @@ namespace VeriFinalProjesi
                 if (p2_On == null)
                 {
                     p2_On = p2_Arka = p2kuyruk;
-                    return;
                 }
-
-                p2_Arka.sonraki = p2kuyruk;
-                p2_Arka = p2kuyruk;
+                else if (p2_On != null)
+                {
+                    p2_Arka.sonraki = p2kuyruk;
+                    p2_Arka = p2kuyruk;
+                }
             }
         }
 
@@ -192,11 +194,12 @@ namespace VeriFinalProjesi
                 if (p3_On == null)
                 {
                     p3_On = p3_Arka = p3kuyruk;
-                    return;
                 }
-
-                p3_Arka.sonraki = p3kuyruk;
-                p3_Arka = p3kuyruk;
+                else if (p3_On != null)
+                {
+                    p3_Arka.sonraki = p3kuyruk;
+                    p3_Arka = p3kuyruk;
+                }
             }
         }
 
@@ -246,21 +249,23 @@ namespace VeriFinalProjesi
             processArray[1] = p2_On.sayi;
             processArray[2] = p3_On.sayi;
 
+            Array.Sort(processArray);
+
             for (int i = 0; i < processArray.Length; i++)
             {
                 node cpukuyruk = new node();
 
                 cpukuyruk.sayi = processArray[i];
-                Array.Sort(processArray);
 
                 if (cpu_On == null)
                 {
                     cpu_On = cpu_Arka = cpukuyruk;
-                    return;
                 }
-
-                cpu_Arka.sonraki = cpukuyruk;
-                cpu_Arka = cpukuyruk;
+                else if (cpu_On != null)
+                {
+                    cpu_Arka.sonraki = cpukuyruk;
+                    cpu_Arka = cpukuyruk;
+                }
             }
 
             if (p1_On != null)
