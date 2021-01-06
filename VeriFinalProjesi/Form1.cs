@@ -82,6 +82,24 @@ namespace VeriFinalProjesi
                 timer_P3.Enabled = true;
                 p3_Basladi = true;
             }
+
+            if (p1Speed == 0)
+            {
+                timer_P1.Enabled = false;
+                p1_Basladi = false;
+            }
+
+            if (p2Speed == 0)
+            {
+                timer_P2.Enabled = false;
+                p2_Basladi = false;
+            }
+
+            if (p3Speed == 0)
+            {
+                timer_P3.Enabled = false;
+                p3_Basladi = false;
+            }
         }
 
         private void timer_P1_Tick(object sender, EventArgs e)
@@ -241,7 +259,21 @@ namespace VeriFinalProjesi
             cpuKuyrukGoster();
         }
 
+        /*node geciciP1Kuyruk = new node();
+            geciciP1Kuyruk.sayi = p1_On.sayi;
+            geciciP1Kuyruk.hangip = p1_On.hangip;
+
+            node geciciP2Kuyruk = new node();
+            geciciP2Kuyruk.sayi = p2_On.sayi;
+            geciciP2Kuyruk.hangip = p2_On.hangip;
+
+            node geciciP3Kuyruk = new node();
+            geciciP3Kuyruk.sayi = p3_On.sayi;
+            geciciP3Kuyruk.hangip = p3_On.hangip;*/
+
         int[] processArray = new int[3];
+
+        int[] processPArray = new int[3];
 
         public void cpuKuyrukEkle()
         {
@@ -249,13 +281,19 @@ namespace VeriFinalProjesi
             processArray[1] = p2_On.sayi;
             processArray[2] = p3_On.sayi;
 
+            processPArray[0] = p1_On.hangip;
+            processPArray[1] = p2_On.hangip;
+            processPArray[2] = p3_On.hangip;
+
             Array.Sort(processArray);
 
             for (int i = 0; i < processArray.Length; i++)
             {
+
                 node cpukuyruk = new node();
 
                 cpukuyruk.sayi = processArray[i];
+                //cpukuyruk.hangip = siralama_On.hangip;
 
                 if (cpu_On == null)
                 {
@@ -271,16 +309,19 @@ namespace VeriFinalProjesi
             if (p1_On != null)
             {
                 p1_On = p1_On.sonraki;
+                p1KuyrukGoster();
             }
 
             if (p2_On != null)
             {
                 p2_On = p2_On.sonraki;
+                p2KuyrukGoster();
             }
 
             if (p3_On != null)
             {
                 p3_On = p3_On.sonraki;
+                p3KuyrukGoster();
             }
         }
 
