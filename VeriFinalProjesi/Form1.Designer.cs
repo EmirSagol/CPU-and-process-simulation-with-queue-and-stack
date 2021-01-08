@@ -88,10 +88,9 @@ namespace VeriFinalProjesi
             this.textBox_Processkuyrugu.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Processkuyrugu.Multiline = true;
             this.textBox_Processkuyrugu.Name = "textBox_Processkuyrugu";
-            this.textBox_Processkuyrugu.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox_Processkuyrugu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_Processkuyrugu.Size = new System.Drawing.Size(441, 53);
             this.textBox_Processkuyrugu.TabIndex = 1;
-            this.textBox_Processkuyrugu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // bttn_islemcibaslat
             // 
