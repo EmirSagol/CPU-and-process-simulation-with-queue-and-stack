@@ -17,28 +17,30 @@ namespace VeriFinalProjesi
             InitializeComponent();
         }
 
-        public class node
+        public class kuyruk
         {
             public int sayi;
             public int hangip;
-            public node sonraki;
+            public kuyruk sonraki;
         }
 
-        node p1_On = null;
-        node p1_Arka = null;
+        kuyruk p1_On = null;
+        kuyruk p1_Arka = null;
         bool p1_Basladi = false;
 
-        node p2_On = null;
-        node p2_Arka = null;
+        kuyruk p2_On = null;
+        kuyruk p2_Arka = null;
         bool p2_Basladi = false;
 
-        node p3_On = null;
-        node p3_Arka = null;
+        kuyruk p3_On = null;
+        kuyruk p3_Arka = null;
         bool p3_Basladi = false;
 
-        node cpu_On = null;
-        node cpu_Arka = null;
+        kuyruk cpu_On = null;
+        kuyruk cpu_Arka = null;
         bool cpu_Basladi = false;
+
+        kuyruk yigin_top = null;
 
         public int p1Speed;
         public int p2Speed;
@@ -113,7 +115,7 @@ namespace VeriFinalProjesi
             Random rnd = new Random();
             for (int i = 0; i < p1Speed; i++)
             {
-                node p1kuyruk = new node();
+                kuyruk p1kuyruk = new kuyruk();
                 p1kuyruk.sayi = rnd.Next(0, 5);
                 p1kuyruk.hangip = 1;
 
@@ -131,7 +133,7 @@ namespace VeriFinalProjesi
 
         public void p1KuyrukGoster()
         {
-            node gecici = p1_On;
+            kuyruk gecici = p1_On;
             textBox_p1.Text = null;
             if (gecici == null)
             {
@@ -159,7 +161,7 @@ namespace VeriFinalProjesi
             Random rnd = new Random();
             for (int i = 0; i < p2Speed; i++)
             {
-                node p2kuyruk = new node();
+                kuyruk p2kuyruk = new kuyruk();
                 p2kuyruk.sayi = rnd.Next(0, 5);
                 p2kuyruk.hangip = 2;
 
@@ -177,7 +179,7 @@ namespace VeriFinalProjesi
 
         public void p2KuyrukGoster()
         {
-            node gecici = p2_On;
+            kuyruk gecici = p2_On;
             textBox_p2.Text = null;
             if (gecici == null)
             {
@@ -205,7 +207,7 @@ namespace VeriFinalProjesi
             Random rnd = new Random();
             for (int i = 0; i < p3Speed; i++)
             {
-                node p3kuyruk = new node();
+                kuyruk p3kuyruk = new kuyruk();
                 p3kuyruk.sayi = rnd.Next(0, 5);
                 p3kuyruk.hangip = 3;
 
@@ -223,7 +225,7 @@ namespace VeriFinalProjesi
 
         public void p3KuyrukGoster()
         {
-            node gecici = p3_On;
+            kuyruk gecici = p3_On;
             textBox_p3.Text = null;
             if (gecici == null)
             {
@@ -255,45 +257,46 @@ namespace VeriFinalProjesi
 
         private void timer_Islemci_Tick(object sender, EventArgs e)
         {
-            cpuKuyrukEkle();
+            if (p1_On != null && p2_On != null && p3_On != null)
+            {
+                cpuKuyrukEkle();
+            }
+            
             cpuKuyrukGoster();
+
+            if (cpuspeed != 0)
+            {
+                yiginaAktar();
+            }
         }
-
-        /*node geciciP1Kuyruk = new node();
-            geciciP1Kuyruk.sayi = p1_On.sayi;
-            geciciP1Kuyruk.hangip = p1_On.hangip;
-
-            node geciciP2Kuyruk = new node();
-            geciciP2Kuyruk.sayi = p2_On.sayi;
-            geciciP2Kuyruk.hangip = p2_On.hangip;
-
-            node geciciP3Kuyruk = new node();
-            geciciP3Kuyruk.sayi = p3_On.sayi;
-            geciciP3Kuyruk.hangip = p3_On.hangip;*/
 
         int[] processArray = new int[3];
 
-        int[] processPArray = new int[3];
-
         public void cpuKuyrukEkle()
         {
-            processArray[0] = p1_On.sayi;
-            processArray[1] = p2_On.sayi;
-            processArray[2] = p3_On.sayi;
+            if (p1_On != null)
+            {
+                processArray[0] = p1_On.sayi;
+            }
+            if (p2_On != null)
+            {
+                processArray[1] = p2_On.sayi;
+            }
+            if (p3_On != null)
+            {
+                processArray[2] = p3_On.sayi;
+            }
 
-            processPArray[0] = p1_On.hangip;
-            processPArray[1] = p2_On.hangip;
-            processPArray[2] = p3_On.hangip;
-
+            
             Array.Sort(processArray);
 
+            int sıra = 2;
             for (int i = 0; i < processArray.Length; i++)
             {
+                kuyruk cpukuyruk = new kuyruk();
 
-                node cpukuyruk = new node();
-
-                cpukuyruk.sayi = processArray[i];
-                //cpukuyruk.hangip = siralama_On.hangip;
+                cpukuyruk.sayi = processArray[sıra];
+                sıra--;
 
                 if (cpu_On == null)
                 {
@@ -306,29 +309,56 @@ namespace VeriFinalProjesi
                 }
             }
 
+            sıra = 2;
+
             if (p1_On != null)
             {
-                p1_On = p1_On.sonraki;
+                if (p1_On.sonraki == null)
+                {
+                    p1_On = null;
+                }
+                else
+                {
+                    p1_On = p1_On.sonraki;
+                }
+                
                 p1KuyrukGoster();
             }
 
             if (p2_On != null)
             {
-                p2_On = p2_On.sonraki;
+                if (p2_On.sonraki == null)
+                {
+                    p2_On = null;
+                }
+                else
+                {
+                    p2_On = p2_On.sonraki;
+                }
+               
                 p2KuyrukGoster();
             }
 
             if (p3_On != null)
             {
-                p3_On = p3_On.sonraki;
+                if (p3_On.sonraki == null)
+                {
+                    p3_On = null;
+                }
+                else
+                {
+                    p3_On = p3_On.sonraki;
+                }
+               
                 p3KuyrukGoster();
             }
         }
 
         public void cpuKuyrukGoster()
         {
-            node gecici = cpu_On;
+            kuyruk gecici = cpu_On;
             textBox_Processkuyrugu.Text = null;
+
             if (gecici == null)
             {
                 return;
@@ -338,10 +368,14 @@ namespace VeriFinalProjesi
             {
                 while (gecici != null)
                 {
-                    textBox_Processkuyrugu.Text += /*p değeri çekilecek "-" + */gecici.sayi + "-->";
+                    textBox_Processkuyrugu.Text += gecici.sayi + "-->";
                     gecici = gecici.sonraki;
                 }
             }
+        }
+        public void yiginaAktar()//Kuyruk olmayacak
+        {
+
         }
     }
 }
